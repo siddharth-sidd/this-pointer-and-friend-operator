@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std ;
+class complex
+{
+   private:
+     int real;
+     int img;
+   public:
+      complex(int real ,int img){
+          this->real=real;
+          this->img=img;
+      }
+       void showdata(){
+         cout<<real<<"+"<<img<<"i"<<endl;
+      }
+        complex & operator =(complex &c)
+       {
+            this->real=c.real;
+            this->img=c.img;
+            return (*this);
+       }
+         void display()
+         {
+              cout<<":: assignment operator is called ::"<<endl;
+              cout<<"real ="<<real<<endl<<"img ="<<img;
+         }
+        complex(){ }
+};
+int main()
+{
+    complex c1(2,3);
+       cout<<"complex number is : ";
+       c1.showdata();
+    complex c2;
+       c2=c1;
+       c2.display();
+     return 0;
+}
