@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class integer
+{
+    private:
+         int i;
+    public:
+       integer(int i):i(i)
+       {    }
+        int operator !()
+       {
+          return -i;
+       }
+    
+};
+int main()
+{
+      integer x=-3;
+        
+        cout<<!x; 
+        return 0;
+}
