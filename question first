@@ -1,0 +1,45 @@
+/*overload the (<<) insertion operator and (>>) extraction operator using complex class make sure that
+    member varable and local varable remain same ?*/
+
+#include<iostream>
+using namespace std;
+class complex
+{
+    private:
+       int  real;
+       int  img;
+    public:
+       void setdata(int real,int img)
+       {
+            this->real=real;
+            this->img=img; 
+       }
+        friend complex operator>>(istream &in,complex &c)
+        {
+            cout<<"entre complex number :";
+              in>>c.real>>c.img;
+        }
+           complex operator+(complex c)
+           {
+              complex temp;
+               temp.real=real+c.real;
+               temp.img=img+c.img;
+                    return temp;
+           }
+        friend complex operator <<(ostream & out,complex & c)
+        {
+            out<<c.real<<"+"<<c.img<<"i"<<endl;
+        }
+    };
+     int main()
+     {
+        complex c1,c2,c3;
+          c1.setdata(2,3);
+           cout<<c1;
+          cin>>c2;
+          cout<<c2;
+          c3=c1+c2;
+          cout<<"sum of both complex number is :";
+          cout<<c3;
+        return 0;
+   }
